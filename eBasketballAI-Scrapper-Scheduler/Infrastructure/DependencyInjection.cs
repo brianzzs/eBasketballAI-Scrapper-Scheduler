@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 
 namespace Infrastructure
@@ -19,6 +21,8 @@ namespace Infrastructure
             });
 
             services.ConfigureOptions<ScrapperJobSetup>();
-        }
+
+            services.AddDbContext<eBasketballDbContext>();
     }
+}
 }
