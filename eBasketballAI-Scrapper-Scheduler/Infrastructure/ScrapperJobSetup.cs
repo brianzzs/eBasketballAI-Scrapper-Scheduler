@@ -17,7 +17,7 @@ namespace Infrastructure
             options
             .AddJob<ScrapperJob>(jobBuilder => jobBuilder.WithIdentity(jobKey))
             .AddTrigger(trigger => trigger.ForJob(jobKey)
-            .WithSimpleSchedule(schedule => schedule.WithIntervalInMinutes(5).RepeatForever()));
+            .WithSimpleSchedule(schedule => schedule.WithIntervalInMinutes(10).RepeatForever()));
         }
     }
 }
