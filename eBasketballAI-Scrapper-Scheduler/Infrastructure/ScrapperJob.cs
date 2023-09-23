@@ -5,6 +5,7 @@ using Quartz;
 
 namespace Infrastructure
 {
+    [DisallowConcurrentExecution]
     public class ScrapperJob : IJob
     {
         private readonly ILogger<LoggingBackgroundJob> _logger;
@@ -19,7 +20,7 @@ namespace Infrastructure
             HttpClient client = new HttpClient();
             var service = new MatchScrapperService();
 
-            var page = 20;
+            var page = 1000;
 
             while (page >= 1)
             {

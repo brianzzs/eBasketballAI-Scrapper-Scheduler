@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
+    [DisallowConcurrentExecution]
     public class ScrapperJobSetup : IConfigureOptions<QuartzOptions>
     {
         public void Configure(QuartzOptions options)
@@ -16,7 +17,7 @@ namespace Infrastructure
             options
             .AddJob<ScrapperJob>(jobBuilder => jobBuilder.WithIdentity(jobKey))
             .AddTrigger(trigger => trigger.ForJob(jobKey)
-            .WithSimpleSchedule(schedule => schedule.WithIntervalInMinutes(3).RepeatForever()));
+            .WithSimpleSchedule(schedule => schedule.WithIntervalInMinutes(5).RepeatForever()));
         }
     }
 }
