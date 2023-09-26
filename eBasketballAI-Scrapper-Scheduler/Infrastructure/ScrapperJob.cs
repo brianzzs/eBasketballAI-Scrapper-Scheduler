@@ -20,7 +20,7 @@ namespace Infrastructure
             HttpClient client = new HttpClient();
             var service = new MatchScrapperService();
 
-            var page = 10;
+            var page = 30;
             while (page >= 1)
             {
                 using var contexto = new eBasketballDbContext();
